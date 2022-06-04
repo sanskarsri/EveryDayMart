@@ -11,6 +11,7 @@ function App() {
   
   const [cart, setCart] = useState([]);
   const [products,setproducts] = useState([]);
+  const [inventoryproducts,setinventoryproducts] = useState([]);
  
   const handleAddtocart = (item) => {
 
@@ -27,6 +28,9 @@ function App() {
   useEffect(()=>{
     console.log(cart);
   },[cart])
+  // useEffect(()=>{
+  //   setinventoryproducts(products);
+  // },[products])
 
 
   return (
@@ -48,7 +52,7 @@ function App() {
                 path="/inventory"
                 element={
                   <>
-                  <Inventory />
+                  <Inventory inventoryproducts={inventoryproducts} setinventoryproducts={setinventoryproducts} />
                   </>
                 }
               />
