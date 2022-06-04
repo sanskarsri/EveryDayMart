@@ -4,6 +4,7 @@ import Badge from '@mui/material/Badge';
 import { styled } from '@mui/material/styles';
 import IconButton from '@mui/material/IconButton';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import InventoryIcon from '@mui/icons-material/Inventory';
 import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
 import CloseIcon from '@mui/icons-material/Close';
@@ -121,6 +122,9 @@ export default function Navbar({cart,setCart,products}){
             {/* <form className="form-inline my-2 my-lg-0">
               <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
             </form> */}
+            <Link to="/inventory">
+            <InventoryIcon style={{color:"white",marginRight:"5px",cursor:"pointer"}} />
+            </Link>
             <IconButton aria-label="cart" onClick={handleOpen}>
               <StyledBadge badgeContent={cart.length} color="secondary">
                 <ShoppingCartIcon style={{color:"white"}} />

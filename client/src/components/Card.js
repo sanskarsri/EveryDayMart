@@ -13,16 +13,24 @@ export default function Card({idx, img,price,quantity,title,handleAddtocart}){
 
     return (<>
     {quantity > 0 ? 
-    <div className='col-md-4 col-12 mt-3'>
-      <div className="card" >
-        <div className="product-imagebox">
-          <img src={img} className="card-img-top product-img" alt={title} />
+    <div className='col-12 mt-3'>
+      <div className="card p-3" >
+      <div className="row m-0" >
+        <div className="col-12 col-md-10">
+        <div className="card-body p-0 d-flex flex-column">
+          <div >
+          <span className="card-title">{title}</span>
+          <span href="#" class="badge badge-info ml-4">{quantity}</span>
+          </div>
+          <span className="card-text">&#8377; {price}</span>
         </div>
-        <div className="card-body d-flex flex-column align-items-center justify-content-center">
-          <h5 className="card-title">{title}</h5>
-          <span className="card-text my-3">&#8377; {price}</span>
-          <p className="btn btn-primary w-fit" onClick={()=>handleAddtocart(obj)}>Add To Cart</p>
         </div>
+        <div className='col-12 col-md-2'>
+          <div className="d-flex align-items-center justify-content-center h-100">
+          <p className="btn btn-primary badge-info mb-0" onClick={()=>handleAddtocart(obj)}>Add To Cart</p>
+          </div>
+        </div>
+      </div>
       </div>
     </div>
     : null}

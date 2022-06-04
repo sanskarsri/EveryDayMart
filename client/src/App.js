@@ -3,6 +3,7 @@ import  { Navigate  } from 'react-router-dom'
 import React , {useState, useEffect} from 'react';
 import Navbar from "./components/Navbar";
 import Home from "./components/Home";
+import Inventory from "./components/Inventory";
 import Footer from "./components/Footer";
 import './index.css';
 
@@ -39,6 +40,15 @@ function App() {
                 element={
                   <>
                   <Home handleAddtocart={handleAddtocart} products={products} setproducts={setproducts} />
+                  </>
+                }
+              />
+              <Route
+                exact
+                path="/inventory"
+                element={
+                  <>
+                  <Inventory />
                   </>
                 }
               />
