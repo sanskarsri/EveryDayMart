@@ -30,11 +30,11 @@ export default function CartCard({idx,products,obj,cart,setCart,id,setbool,handl
         var temp=cart;
         temp[id].quantity_selected=count;
         temp[id].amount=itemamount;
-        console.log("temp",temp)
+        // console.log("temp",temp)
         setbool(true);
 
         setCart(temp);
-        console.log("cart",cart)
+        // console.log("cart",cart)
     },[count,itemamount])
 
     return (
@@ -53,7 +53,8 @@ export default function CartCard({idx,products,obj,cart,setCart,id,setbool,handl
                       <p>{products[idx].company}</p>
                       <div className="d-flex">
                       <p className="card-text w-fit mr-3"><b>Price:</b> &#8377; {products[idx].price}</p>
-                      <p className="card-text w-fit"><b>GST:</b>  {products[idx].gst}%</p>
+                      <p className="card-text w-fit mr-3"><b>GST:</b>  {products[idx].gst}%</p>
+                      <p className="card-text w-fit"><b>Stock:</b>  {products[idx].quantity}</p>
                       </div>
                       <div className="d-flex justify-content-between">
                         <div className="btn-group" role="group" aria-label="Basic example">
