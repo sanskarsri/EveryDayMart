@@ -4,7 +4,7 @@ import './InventoryCard.css';
 export default function InventoryCard({ele,idx,inventoryproducts,updateinventory}){
 
     // const {price,quantity,title,company,expiry,batch,packsize,gst} = ele;
-
+    console.log("ele",ele,idx);
     const [title,settitle] = useState(ele.title);
     const [price,setprice] = useState(ele.price);
     const [quantity,setquantity] = useState(ele.quantity);
@@ -41,7 +41,7 @@ export default function InventoryCard({ele,idx,inventoryproducts,updateinventory
         <div className="col-12">
         <div className="card-body p-0">
             <div className="row m-0">
-          <div className="col-12 col-md-6 mt-2">
+          <div className="col-12 col-md-6">
               <div className='d-flex justify-content-between form__group'>
               <b>Name: </b>
               <input type="text" className="form__field"  value={title} 
@@ -51,7 +51,7 @@ export default function InventoryCard({ele,idx,inventoryproducts,updateinventory
               />
               </div>
           </div>
-          <div className="col-12 col-md-6 mt-2">
+          <div className="col-12 col-md-6">
               <div className='d-flex justify-content-between form__group'>
               <b>Company Name: </b> 
               <input type="text" className="form__field"  value={company} 
@@ -61,7 +61,7 @@ export default function InventoryCard({ele,idx,inventoryproducts,updateinventory
               />
           </div>
           </div>
-          <div className="col-12 col-md-6 mt-2">
+          <div className="col-12 col-md-6">
               <div className='d-flex justify-content-between form__group'>
               <b>Expiry Date: </b> 
               <input type="text" className="form__field"  value={expiry} 
@@ -71,7 +71,7 @@ export default function InventoryCard({ele,idx,inventoryproducts,updateinventory
               />
           </div>
           </div>
-          <div className="col-12 col-md-6 mt-2">
+          <div className="col-12 col-md-6">
               <div className='d-flex justify-content-between form__group'>
               <b>Batch Num: </b> 
               <input type="text" className="form__field"  value={batch} 
@@ -81,7 +81,7 @@ export default function InventoryCard({ele,idx,inventoryproducts,updateinventory
               />
           </div>
           </div>
-          <div className="col-12 col-md-6 mt-2">
+          <div className="col-12 col-md-6">
               <div className='d-flex justify-content-between form__group'>
               <b>Pack Size: </b> 
               <input type="text" className="form__field"  value={packsize} 
@@ -91,7 +91,7 @@ export default function InventoryCard({ele,idx,inventoryproducts,updateinventory
               />
           </div>
           </div>
-          <div className="col-12 col-md-6 mt-2">
+          <div className="col-12 col-md-6">
               <div className='d-flex justify-content-between form__group'>
               <b>GST : </b> 
               <input type="text" className="form__field"  value={gst} 
@@ -101,7 +101,7 @@ export default function InventoryCard({ele,idx,inventoryproducts,updateinventory
               />
           </div>
           </div>
-          <div className="col-12 col-md-6 mt-2">
+          <div className="col-12 col-md-6">
               <div className='d-flex justify-content-between form__group'>
               <b>Price : </b> 
               <input type="text" className="form__field"  value={price} 
@@ -111,7 +111,7 @@ export default function InventoryCard({ele,idx,inventoryproducts,updateinventory
               />
           </div>
           </div>
-          <div className="col-12 col-md-6 mt-2">
+          <div className="col-12 col-md-6">
               <div className='d-flex justify-content-between form__group'>
               <b>Quantity Available: </b> 
               <input type="text" className="form__field"  value={quantity} 

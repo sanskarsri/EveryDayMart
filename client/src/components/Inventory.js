@@ -1,9 +1,10 @@
-import React , {useEffect} from 'react';
+import React , {useEffect, useState} from 'react';
 import InventoryCard from "./InventoryCard";
 import Axios from "axios";
 
-export default function Inventory({inventoryproducts,setinventoryproducts}){
+export default function Inventory(){
 
+  const [inventoryproducts,setinventoryproducts] = useState([]);
     
     const handleonLoad = async () => {
         await Axios({
@@ -57,6 +58,8 @@ export default function Inventory({inventoryproducts,setinventoryproducts}){
             });
     }
 
+    const [searchText,setsearchText] = useState("");
+
     useEffect(()=>{
         handleonLoad();
     },[]);
@@ -67,13 +70,31 @@ export default function Inventory({inventoryproducts,setinventoryproducts}){
         <h2 className="w-fit" style={{color:"#fff",paddingTop:"20px"}}>INVENTORY</h2>
         <div className='btn btn-light text-dark w-fit' onClick={()=>{updateexcel()}}>Update</div>
         </div>
+        <div className="d-flex flex-column align-items-center my-3">
+          <input type="text" value={searchText} onChange={(e)=>setsearchText(e.target.value)} className="form__field" style={{borderBottom:"2px solid #fff",color:"#fff",width:"50%"}} placeholder="Search" />
+        </div>
             {
                 inventoryproducts && inventoryproducts.length>0 ?
                 <div className='row mb-5 pt-3' >
                     {
-                        inventoryproducts.map((ele,i)=>
-                        <InventoryCard key={ele.id} ele={ele} idx={i} inventoryproducts={inventoryproducts} updateinventory={updateinventory} setinventoryproducts={setinventoryproducts} />
-                        )
+                        inventoryproducts
+                        .filter((ele) => {
+                          if (searchText === "") return ele;
+                          else if (
+                            ele.title
+                              .toLowerCase()
+                              .startsWith(searchText.toLowerCase())
+                          ) {
+                            // console.log(ele);
+                            return ele;
+                          }
+                        }).map((ele,i)=>
+                        (
+                          <>
+                          {console.log(i,ele)}
+                        <InventoryCard key={i} ele={ele} idx={i} inventoryproducts={inventoryproducts} updateinventory={updateinventory} />
+                        </>
+                        ))
                     }
                 </div>
                 :null
