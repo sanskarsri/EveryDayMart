@@ -25,7 +25,8 @@ export default function CartCard({idx,products,obj,cart,setCart,id,setbool,handl
         handleChangeCount(count-1);
     }
     useEffect(()=>{
-        setitemamount(Math.round(products[idx].price*count * 100) / 100);
+        setitemamount((Math.round(products[idx].price*count * 100) / 100)+(Math.round((products[idx].price*count* (products[idx].gst)/100) * 100) / 100));
+        // setitemamount(Math.round((itemamount * (100+products[idx].gst)/100)*100) / 100);
         var temp=cart;
         temp[id].quantity_selected=count;
         temp[id].amount=itemamount;
@@ -49,7 +50,11 @@ export default function CartCard({idx,products,obj,cart,setCart,id,setbool,handl
                 <div className="col-12">
                     <div className="card-body py-0">
                       <h5 className="card-title">{products[idx].title}</h5>
-                      <p className="card-text"><b>Price:</b> &#8377; {products[idx].price}</p>
+                      <p>{products[idx].company}</p>
+                      <div className="d-flex">
+                      <p className="card-text w-fit mr-3"><b>Price:</b> &#8377; {products[idx].price}</p>
+                      <p className="card-text w-fit"><b>GST:</b>  {products[idx].gst}%</p>
+                      </div>
                       <div className="d-flex justify-content-between">
                         <div className="btn-group" role="group" aria-label="Basic example">
                           <button type="button" className="btn btn-secondary" onClick={handledec}>-</button>

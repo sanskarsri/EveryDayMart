@@ -48,13 +48,13 @@ export default function Navbar({cart,setCart,products}){
   useEffect(()=>{
     setamountopay(Math.round(cart.reduce((partialSum, a) => partialSum + Math.round(a.amount * 100) / 100, 0)*100)/100);
     setbool(false);
-    console.log(amountopay)
+    // console.log(amountopay)
   },[bool])
 
   const handleRemovefromcart = (item) => {
 
     var i;
-    console.log(item,amountopay)
+    // console.log(item,amountopay)
     let temp=[];
     for (i = 0; i < cart.length; i++) {
         if (cart[i].idx != item.idx) {
@@ -69,7 +69,7 @@ export default function Navbar({cart,setCart,products}){
     setbool(true);
     // setamountopay(Math.round(cart.reduce((partialSum, a) => partialSum + Math.round(a.amount * 100) / 100, 0)*100)/100);
     
-    console.log(item,amountopay)
+    // console.log(item,amountopay)
   };
 
   const downloadbill= async () => {
@@ -157,7 +157,7 @@ export default function Navbar({cart,setCart,products}){
                   {cart && cart.length>0 ? amountopay : 0}
                   {" "} 
                   <DownloadIcon onClick={()=>{
-                    if(cart&&cart.length>0)
+                    if(cart&&cart.length>0 && amountopay!=0)
                      downloadbill()
                   }} style={{cursor:"pointer"}} sx={{fontSize:"medium"}} />
                 </p>

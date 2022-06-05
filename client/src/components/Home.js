@@ -32,7 +32,7 @@ export default function Home({handleAddtocart,handleRemovefromcart,products,setp
                 <div className='row mb-5 pt-3' >
                     {
                         products.map((ele,i)=>
-                        <Card key={ele.id} img={ele.image} idx={i} price={ele.price} quantity={ele.quantity} title={ele.title} handleAddtocart={handleAddtocart} />
+                        <Card key={ele.id} ele={ele} idx={i} handleAddtocart={handleAddtocart} />
                         )
                     }
                 </div>
