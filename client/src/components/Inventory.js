@@ -93,9 +93,9 @@ export default function Inventory(){
                         searchproducts.map((ele,i)=>
                         (
                           <>
-                          {console.log(searchproducts)}
-                          {console.log(ele)}
-                        <InventoryCard key={i} ele={ele} updateinventory={updateinventory} />
+                          {/* {console.log(searchproducts)}
+                          {console.log(ele)} */}
+                        <InventoryCard key={i} ele={ele} inventoryproducts={inventoryproducts} updateinventory={updateinventory} />
                         </>
                         ))
                     }

@@ -1,7 +1,7 @@
 import React, { useState,useEffect } from 'react';
 import './InventoryCard.css';
 
-export default function InventoryCard({ele,updateinventory}){
+export default function InventoryCard({ele,inventoryproducts,updateinventory}){
 
     // const {price,quantity,title,company,expiry,batch,packsize,gst} = ele;
   //  console.log(ele)
@@ -33,17 +33,24 @@ export default function InventoryCard({ele,updateinventory}){
 
     function handleChange(name,value) {
       // const { name, value } = event.target;
-      console.log(name,value);
+      // console.log(name,value);
       setobj(prevobj => {
         return {
           ...prevobj,
           [name]: value
         };
       });
-      // var x=inventoryproducts;
-      // x[idx]=obj;
-      // updateinventory(x);
     }
+
+    useEffect(()=>{
+      if(obj)
+      {
+      var x=inventoryproducts;
+      x[obj.serial-1]=obj;
+      updateinventory(x);
+      }
+    },[obj])
+
 
     // useEffect(()=>{
         // const obj={
