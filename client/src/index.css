@@ -40,6 +40,9 @@ body {
 .w-fit{
   width: fit-content !important;
 }
+.h-fit{
+  height: fit-content !important;
+}
 .modal-cart .MuiBox-root {
   width: 600px;
   background-color: #184b5e;
@@ -71,7 +74,9 @@ body {
   border-radius: 8px;
 }
 .footer{
-  padding:16px
+  padding:16px;
+  /* position:absolute; */
+  /* bottom: 0; */
 }
 a{
   text-decoration: none;

@@ -88,7 +88,7 @@ export default function Inventory(){
         </div>
             {
                 searchproducts && searchproducts.length>0 ?
-                <div className='row mb-5 pt-3' >
+                <div className='row mb-5 pt-3' style={{minHeight:"65vh"}}>
                     {
                         searchproducts.map((ele,i)=>
                         (
