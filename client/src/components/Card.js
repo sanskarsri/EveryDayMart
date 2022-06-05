@@ -36,7 +36,7 @@ export default function Card({idx, ele,handleAddtocart}){
         </div>
         <div className='col-12 col-md-2'>
           <div className="d-flex align-items-center justify-content-center h-100">
-          <p className="btn btn-primary badge-info mb-0" onClick={()=>handleAddtocart(obj)}>Add To Buy</p>
+          <p className="btn btn-primary badge-info mb-0" onClick={()=>handleAddtocart(obj)}>Add</p>
           </div>
         </div>
       </div>

@@ -63,8 +63,10 @@ export default function Inventory({inventoryproducts,setinventoryproducts}){
 
     return (<>
     <div className="container mt-5">
-        <h2 style={{color:"#fff",paddingTop:"20px"}}>INVENTORY</h2>
-        <div className='btn btn-light text-dark' onClick={()=>{updateexcel()}}>Update</div>
+      <div className='d-flex justify-content-between align-items-center pt-3'>
+        <h2 className="w-fit" style={{color:"#fff",paddingTop:"20px"}}>INVENTORY</h2>
+        <div className='btn btn-light text-dark w-fit' onClick={()=>{updateexcel()}}>Update</div>
+        </div>
             {
                 inventoryproducts && inventoryproducts.length>0 ?
                 <div className='row mb-5 pt-3' >

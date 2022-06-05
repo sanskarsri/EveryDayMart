@@ -25,7 +25,7 @@ export default function CartCard({idx,products,obj,cart,setCart,id,setbool,handl
         handleChangeCount(count-1);
     }
     useEffect(()=>{
-        setitemamount((Math.round(products[idx].price*count * 100) / 100)+(Math.round((products[idx].price*count* (products[idx].gst)/100) * 100) / 100));
+        setitemamount(Math.round(((Math.round(products[idx].price*count * 100) / 100)+(Math.round((products[idx].price*count* (products[idx].gst)/100) * 100) / 100))*100)/100);
         // setitemamount(Math.round((itemamount * (100+products[idx].gst)/100)*100) / 100);
         var temp=cart;
         temp[id].quantity_selected=count;
