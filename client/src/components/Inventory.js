@@ -61,40 +61,21 @@ export default function Inventory(){
     }
 
     const [searchText,setsearchText] = useState("");
-    const [bool,setbool] = useState(true);
 
     useEffect(()=>{
         handleonLoad();
     },[]);
 
     useEffect(()=>{
-      var temp=[];
+      let x=[];
       inventoryproducts.map((ele)=>{
-        if(ele.title.toLowerCase().startsWith(searchText.toLocaleLowerCase()))
-        {
-          temp.push(ele);
-        }
+        if(ele.title
+          .toLowerCase()
+          .startsWith(searchText.toLowerCase()))
+          x.push(ele);
       })
-      setsearchproducts(temp);
-  },[searchText]);
-
-  const updateval = (mode,val,idxm,idx) => {
-    let x=inventoryproducts,y=searchproducts;
-    setbool(false);
-    switch(mode){
-      case "title":
-          x[idxm].title=val;
-          y[idx].title=val;
-          setinventoryproducts(x)
-          setsearchproducts(y)
-          console.log(x,y);
-          break;
-      
-    }
-    setinventoryproducts(x)
-    setsearchproducts(y)
-    setbool(true);
-  }
+      setsearchproducts(x)
+    },[searchText])
 
     return (<>
     <div className="container mt-5">
@@ -109,117 +90,13 @@ export default function Inventory(){
                 searchproducts && searchproducts.length>0 ?
                 <div className='row mb-5 pt-3' >
                     {
-                        bool && searchproducts.map((v,i)=>
+                        searchproducts.map((ele,i)=>
                         (
                           <>
-                            <div key={i} className='col-12 mt-3'>
-                              <div className="card p-3" >
-                              <div className="row m-0" >
-                                <div className="col-12">
-                                <div className="card-body p-0">
-                                    <div className="row m-0">
-                                  <div className="col-12 col-md-6">
-                                      <div className='d-flex justify-content-between form__group'>
-                                      <b>Name: </b>
-                                      <input type="text" className="form__field"  value={v.title} 
-                                      onChange={(e)=>{
-                                        // settitle(e.target.value);
-                                        updateval("title",e.target.value,v.serial-1,i)
-                                      }} 
-                                      />
-                                      </div>
-                                  </div>
-                                  <div className="col-12 col-md-6">
-                                      <div className='d-flex justify-content-between form__group'>
-                                      <b>Company Name: </b> 
-                                      <input type="text" className="form__field"  value={v.company} 
-                                      onChange={(e)=>{
-                                        // setcompany(e.target.value);
-                                      }} 
-                                      />
-                                  </div>
-                                  </div>
-                                  <div className="col-12 col-md-6">
-                                      <div className='d-flex justify-content-between form__group'>
-                                      <b>Expiry Date: </b> 
-                                      <input type="text" className="form__field"  value={v.expiry} 
-                                      onChange={(e)=>{
-                                        // setexpiry(e.target.value);
-                                      }} 
-                                      />
-                                  </div>
-                                  </div>
-                                  <div className="col-12 col-md-6">
-                                      <div className='d-flex justify-content-between form__group'>
-                                      <b>Batch Num: </b> 
-                                      <input type="text" className="form__field"  value={v.batch} 
-                                      onChange={(e)=>{
-                                        // setbatch(e.target.value);
-                                      }} 
-                                      />
-                                  </div>
-                                  </div>
-                                  <div className="col-12 col-md-6">
-                                      <div className='d-flex justify-content-between form__group'>
-                                      <b>Pack Size: </b> 
-                                      <input type="text" className="form__field"  value={v.packsize} 
-                                      onChange={(e)=>{
-                                        // setpacksize(e.target.value);
-                                      }} 
-                                      />
-                                  </div>
-                                  </div>
-                                  <div className="col-12 col-md-6">
-                                      <div className='d-flex justify-content-between form__group'>
-                                      <b>GST : </b> 
-                                      <input type="text" className="form__field"  value={v.gst} 
-                                      onChange={(e)=>{
-                                        // setgst(e.target.value);
-                                      }} 
-                                      />
-                                  </div>
-                                  </div>
-                                  <div className="col-12 col-md-6">
-                                      <div className='d-flex justify-content-between form__group'>
-                                      <b>Price : </b> 
-                                      <input type="text" className="form__field"  value={v.price} 
-                                      onChange={(e)=>{
-                                        // setprice(e.target.value);
-                                      }} 
-                                      />
-                                  </div>
-                                  </div>
-                                  <div className="col-12 col-md-6">
-                                      <div className='d-flex justify-content-between form__group'>
-                                      <b>Quantity Available: </b> 
-                                      <input type="text" className="form__field"  value={v.quantity} 
-                                      onChange={(e)=>{
-                                        // setquantity(e.target.value);
-                                      }} 
-                                      />
-                                  </div>
-                                  </div>
-                                    
-                                    </div>
-                                  {/* <span className="card-title">{title}</span>
-                                  <span className="card-title">{company}</span>
-                                  <span className="card-title">{expiry}</span>
-                                  <span className="card-title">{batch}</span>
-                                  <span className="card-title">{packsize}</span>
-                                  <span className="card-title">{gst}</span>
-                                  <span className="card-text">&#8377; {price}</span> */}
-                                </div>
-                                </div>
-                              </div>
-                              </div>
-                            </div>
-                            </>
-                        //   <>
-                        // <InventoryCard key={i} ele={v} idx={i} inventoryproducts={inventoryproducts} 
-                        // // updateinventory={updateinventory} 
-                        // />
-                        // </>
-
+                          {console.log(searchproducts)}
+                          {console.log(ele)}
+                        <InventoryCard key={i} ele={ele} updateinventory={updateinventory} />
+                        </>
                         ))
                     }
                 </div>

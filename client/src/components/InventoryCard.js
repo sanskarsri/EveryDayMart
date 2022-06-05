@@ -1,37 +1,69 @@
 import React, { useState,useEffect } from 'react';
 import './InventoryCard.css';
 
-export default function InventoryCard({ele,idx,inventoryproducts}){ // ,updateinventory
+export default function InventoryCard({ele,updateinventory}){
 
     // const {price,quantity,title,company,expiry,batch,packsize,gst} = ele;
-    const [title,settitle] = useState(ele.title);
-    const [price,setprice] = useState(ele.price);
-    const [quantity,setquantity] = useState(ele.quantity);
-    const [company,setcompany] = useState(ele.company);
-    const [expiry,setexpiry] = useState(ele.expiry);
-    const [batch,setbatch] = useState(ele.batch);
-    const [packsize,setpacksize] = useState(ele.packsize);
-    const [gst,setgst] = useState(ele.gst);
-
+  //  console.log(ele)
+  
+    const [title,settitle] = useState();
+    const [price,setprice] = useState();
+    const [quantity,setquantity] = useState();
+    const [company,setcompany] = useState();
+    const [expiry,setexpiry] = useState();
+    const [batch,setbatch] = useState();
+    const [packsize,setpacksize] = useState();
+    const [gst,setgst] = useState();
+    const [obj,setobj] = useState();
+    
     useEffect(()=>{
-        const obj={
-          serial: ele.serial,
-          price,
-          quantity,
-          title, 
-          company,
-          expiry,
-          batch,
-          packsize,
-          gst
-      }
+      settitle(ele.title);
+      setprice(ele.price);
+      setquantity(ele.quantity);
+      setcompany(ele.company);
+      setexpiry(ele.expiry);
+      setbatch(ele.batch);
+      setpacksize(ele.packsize);
+      setgst(ele.gst);
+      setobj(ele);
+    },[ele])
+      
 
-      var x=inventoryproducts;
-      x[ele.serial -1]=obj;
+    // console.log(price,quantity,title,company,expiry,batch,packsize,gst);
+
+    function handleChange(name,value) {
+      // const { name, value } = event.target;
+      console.log(name,value);
+      setobj(prevobj => {
+        return {
+          ...prevobj,
+          [name]: value
+        };
+      });
+      // var x=inventoryproducts;
+      // x[idx]=obj;
       // updateinventory(x);
+    }
 
-    },[price,quantity,title,company,expiry,batch,packsize,gst])
+    // useEffect(()=>{
+        // const obj={
+        //     price,
+        //     quantity,
+        //     title,
+        //     company,
+        //     expiry,
+        //     batch,
+        //     packsize,
+        //     gst
+        // }
 
+        // var x=inventoryproducts;
+        // x[idx]=obj;
+        // updateinventory(x);
+        // setinventoryproducts(x);
+        // console.log(inventoryproducts);
+
+    // },[price,quantity,title,company,expiry,batch,packsize,gst])
 
     return (<>
     <div className='col-12 mt-3'>
@@ -43,9 +75,9 @@ export default function InventoryCard({ele,idx,inventoryproducts}){ // ,updatein
           <div className="col-12 col-md-6">
               <div className='d-flex justify-content-between form__group'>
               <b>Name: </b>
-              <input type="text" className="form__field"  value={title} 
+              <input type="text" className="form__field"  value={obj?obj.title:null} 
               onChange={(e)=>{
-                settitle(e.target.value);
+                handleChange("title",e.target.value)
               }} 
               />
               </div>
@@ -53,9 +85,9 @@ export default function InventoryCard({ele,idx,inventoryproducts}){ // ,updatein
           <div className="col-12 col-md-6">
               <div className='d-flex justify-content-between form__group'>
               <b>Company Name: </b> 
-              <input type="text" className="form__field"  value={company} 
+              <input type="text" className="form__field"  value={obj?obj.company:null} 
               onChange={(e)=>{
-                setcompany(e.target.value);
+                handleChange("company",e.target.value)
               }} 
               />
           </div>
@@ -63,9 +95,9 @@ export default function InventoryCard({ele,idx,inventoryproducts}){ // ,updatein
           <div className="col-12 col-md-6">
               <div className='d-flex justify-content-between form__group'>
               <b>Expiry Date: </b> 
-              <input type="text" className="form__field"  value={expiry} 
+              <input type="text" className="form__field"  value={obj?obj.expiry:null} 
               onChange={(e)=>{
-                setexpiry(e.target.value);
+                handleChange("expiry",e.target.value)
               }} 
               />
           </div>
@@ -73,9 +105,9 @@ export default function InventoryCard({ele,idx,inventoryproducts}){ // ,updatein
           <div className="col-12 col-md-6">
               <div className='d-flex justify-content-between form__group'>
               <b>Batch Num: </b> 
-              <input type="text" className="form__field"  value={batch} 
+              <input type="text" className="form__field"  value={obj?obj.batch:null} 
               onChange={(e)=>{
-                setbatch(e.target.value);
+                handleChange("batch",e.target.value)
               }} 
               />
           </div>
@@ -83,9 +115,9 @@ export default function InventoryCard({ele,idx,inventoryproducts}){ // ,updatein
           <div className="col-12 col-md-6">
               <div className='d-flex justify-content-between form__group'>
               <b>Pack Size: </b> 
-              <input type="text" className="form__field"  value={packsize} 
+              <input type="text" className="form__field"  value={obj?obj.packsize:null} 
               onChange={(e)=>{
-                setpacksize(e.target.value);
+                handleChange("packsize",e.target.value)
               }} 
               />
           </div>
@@ -93,9 +125,9 @@ export default function InventoryCard({ele,idx,inventoryproducts}){ // ,updatein
           <div className="col-12 col-md-6">
               <div className='d-flex justify-content-between form__group'>
               <b>GST : </b> 
-              <input type="text" className="form__field"  value={gst} 
+              <input type="text" className="form__field"  value={obj?obj.gst:null} 
               onChange={(e)=>{
-                setgst(e.target.value);
+                handleChange("gst",e.target.value)
               }} 
               />
           </div>
@@ -103,9 +135,9 @@ export default function InventoryCard({ele,idx,inventoryproducts}){ // ,updatein
           <div className="col-12 col-md-6">
               <div className='d-flex justify-content-between form__group'>
               <b>Price : </b> 
-              <input type="text" className="form__field"  value={price} 
+              <input type="text" className="form__field"  value={obj?obj.price:null} 
               onChange={(e)=>{
-                setprice(e.target.value);
+                handleChange("price",e.target.value)
               }} 
               />
           </div>
@@ -113,9 +145,9 @@ export default function InventoryCard({ele,idx,inventoryproducts}){ // ,updatein
           <div className="col-12 col-md-6">
               <div className='d-flex justify-content-between form__group'>
               <b>Quantity Available: </b> 
-              <input type="text" className="form__field"  value={quantity} 
+              <input type="text" className="form__field"  value={obj?obj.quantity:null} 
               onChange={(e)=>{
-                setquantity(e.target.value);
+                handleChange("quantity",e.target.value)
               }} 
               />
           </div>
