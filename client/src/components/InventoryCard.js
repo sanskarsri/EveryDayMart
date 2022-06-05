@@ -1,10 +1,9 @@
 import React, { useState,useEffect } from 'react';
 import './InventoryCard.css';
 
-export default function InventoryCard({ele,idx,inventoryproducts,updateinventory}){
+export default function InventoryCard({ele,idx,inventoryproducts}){ // ,updateinventory
 
     // const {price,quantity,title,company,expiry,batch,packsize,gst} = ele;
-    console.log("ele",ele,idx);
     const [title,settitle] = useState(ele.title);
     const [price,setprice] = useState(ele.price);
     const [quantity,setquantity] = useState(ele.quantity);
@@ -16,23 +15,23 @@ export default function InventoryCard({ele,idx,inventoryproducts,updateinventory
 
     useEffect(()=>{
         const obj={
-            price,
-            quantity,
-            title,
-            company,
-            expiry,
-            batch,
-            packsize,
-            gst
-        }
+          serial: ele.serial,
+          price,
+          quantity,
+          title, 
+          company,
+          expiry,
+          batch,
+          packsize,
+          gst
+      }
 
-        var x=inventoryproducts;
-        x[idx]=obj;
-        updateinventory(x);
-        // setinventoryproducts(x);
-        // console.log(inventoryproducts);
+      var x=inventoryproducts;
+      x[ele.serial -1]=obj;
+      // updateinventory(x);
 
     },[price,quantity,title,company,expiry,batch,packsize,gst])
+
 
     return (<>
     <div className='col-12 mt-3'>
