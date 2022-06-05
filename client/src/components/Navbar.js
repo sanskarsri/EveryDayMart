@@ -103,7 +103,7 @@ export default function Navbar({cart,setCart,products}){
         } 
       })
       .catch((err) => {
-        alert("Some Error occured Please close the excel sheet and try again");
+        alert("Some Error occured Please close the excel sheet and refresh");
         console.log(err);
       });
 

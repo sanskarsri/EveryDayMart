@@ -17,11 +17,13 @@ app.use(express.urlencoded({ extended: false }))
   // controllers
   const read = require('./controller/api/read');
   const write = require('./controller/api/write');
+  const update = require('./controller/api/update');
 
   
   //routes
   app.use('/api/read', read);
   app.use('/api/write', write);
+  app.use('/api/update', update);
 
   const PORT=process.env.PORT||5000;
 
