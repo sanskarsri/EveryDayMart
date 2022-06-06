@@ -94,7 +94,7 @@ export default function Navbar({cart,setCart,products}){
           //     "index title price quantity amount ");
           cart.map(function(item, i){
               doc.text(20, 20 + (i * 10), 
-                  ` ${i+1}. ${item.title}:   ${item.price} * ${item.quantity_selected} = ${item.amount} `)});
+                  ` ${i+1}. ${item.title}:   ${item.price} * ${item.quantity_selected} + ${item.gst}%(GST) = ${item.amount} `)});
           doc.text(`TOTAL :  ${amountopay} Rupees only /-`, 100, 30+cart.length*10);
           doc.save(`Bill-${new Date().toLocaleString()}.pdf`);
 
