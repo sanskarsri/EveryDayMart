@@ -57,7 +57,7 @@ export default function Navbar({cart,setCart,products}){
     // console.log(item,amountopay)
     let temp=[];
     for (i = 0; i < cart.length; i++) {
-        if (cart[i].idx != item.idx) {
+        if (cart[i].serial != item.serial) {
             temp.push(cart[i]);
         }
         // else{

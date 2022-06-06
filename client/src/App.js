@@ -16,7 +16,7 @@ function App() {
 
     var i;
     for (i = 0; i < cart.length; i++) {
-        if (cart[i].idx === item.idx) {
+        if (cart[i].serial === item.serial) {
             return ;
         }
     }

@@ -2,10 +2,11 @@ import React from 'react';
 
 export default function Card({idx, ele,handleAddtocart}){
 
-  const {price,quantity,title,company,expiry,batch,packsize,gst} = ele;
+  const {serial,price,quantity,title,company,expiry,batch,packsize,gst} = ele;
 
     const obj={
       idx,
+      serial,
       title,
       expiry,
       batch,
