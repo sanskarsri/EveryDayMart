@@ -79,8 +79,8 @@ export default function InventoryCard({ele,inventoryproducts,updateinventory}){
         <div className="col-12">
         <div className="card-body p-0">
             <div className="row m-0">
-          <div className="col-12 col-md-6">
-              <div className='d-flex justify-content-between form__group'>
+          <div className="col-12 col-md-6 inventory_card">
+              <div className='d-flex form__group'>
               <b>Name: </b>
               <input type="text" className="form__field"  value={obj?obj.title:null} 
               onChange={(e)=>{
@@ -89,8 +89,8 @@ export default function InventoryCard({ele,inventoryproducts,updateinventory}){
               />
               </div>
           </div>
-          <div className="col-12 col-md-6">
-              <div className='d-flex justify-content-between form__group'>
+          <div className="col-12 col-md-6 inventory_card">
+              <div className='d-flex form__group'>
               <b>Company Name: </b> 
               <input type="text" className="form__field"  value={obj?obj.company:null} 
               onChange={(e)=>{
@@ -99,8 +99,8 @@ export default function InventoryCard({ele,inventoryproducts,updateinventory}){
               />
           </div>
           </div>
-          <div className="col-12 col-md-6">
-              <div className='d-flex justify-content-between form__group'>
+          <div className="col-12 col-md-6 inventory_card">
+              <div className='d-flex form__group'>
               <b>Expiry Date: </b> 
               <input type="text" className="form__field"  value={obj?obj.expiry:null} 
               onChange={(e)=>{
@@ -109,8 +109,8 @@ export default function InventoryCard({ele,inventoryproducts,updateinventory}){
               />
           </div>
           </div>
-          <div className="col-12 col-md-6">
-              <div className='d-flex justify-content-between form__group'>
+          <div className="col-12 col-md-6 inventory_card">
+              <div className='d-flex form__group'>
               <b>Batch Num: </b> 
               <input type="text" className="form__field"  value={obj?obj.batch:null} 
               onChange={(e)=>{
@@ -119,8 +119,8 @@ export default function InventoryCard({ele,inventoryproducts,updateinventory}){
               />
           </div>
           </div>
-          <div className="col-12 col-md-6">
-              <div className='d-flex justify-content-between form__group'>
+          <div className="col-12 col-md-6 inventory_card">
+              <div className='d-flex form__group'>
               <b>Pack Size: </b> 
               <input type="text" className="form__field"  value={obj?obj.packsize:null} 
               onChange={(e)=>{
@@ -129,8 +129,8 @@ export default function InventoryCard({ele,inventoryproducts,updateinventory}){
               />
           </div>
           </div>
-          <div className="col-12 col-md-6">
-              <div className='d-flex justify-content-between form__group'>
+          <div className="col-12 col-md-6 inventory_card">
+              <div className='d-flex form__group'>
               <b>GST : </b> 
               <input type="text" className="form__field"  value={obj?obj.gst:null} 
               onChange={(e)=>{
@@ -139,8 +139,8 @@ export default function InventoryCard({ele,inventoryproducts,updateinventory}){
               />
           </div>
           </div>
-          <div className="col-12 col-md-6">
-              <div className='d-flex justify-content-between form__group'>
+          <div className="col-12 col-md-6 inventory_card">
+              <div className='d-flex form__group'>
               <b>Price : </b> 
               <input type="text" className="form__field"  value={obj?obj.price:null} 
               onChange={(e)=>{
@@ -149,8 +149,8 @@ export default function InventoryCard({ele,inventoryproducts,updateinventory}){
               />
           </div>
           </div>
-          <div className="col-12 col-md-6">
-              <div className='d-flex justify-content-between form__group'>
+          <div className="col-12 col-md-6 inventory_card">
+              <div className='d-flex form__group'>
               <b>Quantity Available: </b> 
               <input type="text" className="form__field"  value={obj?obj.quantity:null} 
               onChange={(e)=>{
